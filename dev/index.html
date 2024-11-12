@@ -4,792 +4,109 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/icon.ico" type="image/x-icon" />
+    <link rel="icon" href="assets/img/icon.ico" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
     <!-- css -->
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
     <!-- jquery -->
-    <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <!-- aos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.3/aos.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.3/aos.js"></script>
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.min.js"></script>
     <!-- waitForImage -->
     <script src="js/jquery.waitforimages.min.js"></script>
-    <title>IRU</title>
+    <title>BOXING CLUB</title>
 </head> 
 <body>
     <script>
         AOS.init();
-        var wdth = $(window).width();
-        if (document.querySelector('.scroll-trigger-element')) {
-            var script = document.createElement('script');
-            script.src = "https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js";
-            document.head.appendChild(script);
-        }
-        $(document).ready(function() {
-            function truncateText() {
-                $('.item_ctx p').each(function() {
-                    const fullText = $(this).text();
-                    const words = fullText.split(' ');
-
-                    if ($(window).width() < 1200 && words.length > 10) {
-                        const truncatedText = words.slice(0, 10).join(' ') + '...';
-                        $(this).text(truncatedText);
-                    } else if ($(window).width() >= 1200) {
-                        $(this).text(fullText); // 恢復完整內容
-                    }
-                });
-            }
-            // 初始檢查
-            truncateText();
-
-            // 監聽視窗大小變化
-            let resizeTimeout;
-            $(window).resize(function() {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(function() {
-                    truncateText();
-
-                    // 判斷是否為手機或平板
-                    if (!isMobileOrTablet()) {
-                        // 只有在不是手機或平板時才重整頁面
-                        window.location.reload();
-                    }
-                }, 300); // 300ms延遲
-            });
-
-            // 判斷是否為手機或平板的函數
-            function isMobileOrTablet() {
-                return /Mobi|Android/i.test(navigator.userAgent);
-            }
-
-            const currentYear = new Date().getFullYear();
-            $('#currentYear').text(currentYear);
-
-            const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-            const currentMonth = new Date().getMonth();
-            $('#currentMonth').text(monthNames[currentMonth]);
-
-            const currentDay = String(new Date().getDate()).padStart(2, '0');
-            $('#currentDay').text(currentDay);
-
-            const weekNames = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-            const currentWeek = new Date().getDay();
-            $('#currentWeek').text(weekNames[currentWeek]);
-
-            function updateTime() {
-                const now = new Date();
-                const hours = String(now.getHours()).padStart(2, '0'); 
-                const minutes = String(now.getMinutes()).padStart(2, '0'); 
-                $('#currentTime').text(`${hours}:${minutes}`);
-            }
-            $(document).ready(function() {
-                updateTime(); 
-                setInterval(updateTime, 60000);
-            });
-        });
-
-    
     </script>
     <!--▼ loading ▼-->
     <div id="loading">
-            <!--背景文字 -->
-            <div class="bg_words title_style">
-                IRU’s PLANETA
-            </div>
             <div class="loadpage" id="loadpage">
-                <div class="load load1"></div> 
-                <div class="load load2"></div> 
-                <div class="load load3"></div> 
-                <div class="load load4"></div> 
-                <div class="load load5"></div> 
+                <div class="loading-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
             </div>
             <div class="footer_logo">
-                IRU’S PLANETA
+                BOXING CLUB
             </div>
     </div> 
     <!--▲ loading ▲-->
     <header>
-        <nav>
-            <div class="nav_container">
-                <div class="nav_time nav_year inIndex" id="currentYear">
-                    2023
+        <nav> 
+            <div class="top_box pc">
+                <div class="top_logo">
+                    <a href="#">
+                        <img src="assets/img/logo.png" alt="">
+                    </a>
                 </div>
-                <div class="nav_index">
-                    <a href="#index_about" class="goToSomewhere"><span >ABOUT</span></a>
-                    
-                    <button class="svg_button">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="82" height="82" viewBox="0 0 82 82" fill="none"
-                        class="icon icon_default">
-                            <rect x="40.7725" y="33.1464" width="10.7854" height="10.7854" transform="rotate(45 40.7725 33.1464)" fill="#213555"/>
-                            <circle cx="41" cy="41" r="22" stroke="#213555" stroke-width="2"/>
-                            </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="82" height="82" viewBox="0 0 82 82" fill="none" class="icon icon_hidden">
-                            <rect x="40.7725" y="10.8361" width="42.3369" height="42.3369" rx="17" transform="rotate(45 40.7725 10.8361)" stroke="#4F709C" stroke-width="2"/>
-                            <circle cx="41" cy="41" r="7" stroke="#4F709C" stroke-width="2"/>
-                        </svg>
-                    </button>
-                    <a href="#index_works" class="goToSomewhere"><span >WORK</span></a> 
-                </div>
-                <div class="nav_time nav_md inIndex">
-                    <div class="nav_days">
-                        <div class="nav_months" id="currentMonth">
-                            JAN
-                        </div>
-                        :
-                        <div class="nav_day"
-                        id="currentDay">
-                            01
-                        </div>
-                    </div>
-                    <div class="nav_times">
-                        <div class="nav_week" id="currentWeek">
-                            MON
-                        </div>
-                        <div class="nav_clock" id="currentTime">
-                            00:00
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- opened -->
-            <div class="nav_model">
-                <div class="nav_box">
-                    <ul class="nav_list">
-                        <li><a href="#index_about" class="goToSomewhere">ABOUT</a>
-                            </li>
-                        <li><a href="#index_works" class="goToSomewhere">WORKS</a></li>
+                <div class="nav_items">
+                    <ul>
+                        <li><a href="index.html">首頁</a></li>
+                        <li><a href="project.html">風格</a></li>
+                        <li><a href="project.html">色系</a></li>
+                        <li><a href="contact.html">聯絡我們</a></li>
                     </ul>
-                    <div class="nav_contact contact">
-                        <a href="">
-                            <img src="img/icon/icon _sms_.svg" alt="">
-                        </a>
-                        <a href="">
-                            <img src="img/icon/icon _instagram_.svg" alt="">
-                        </a>
-                        <a href="">
-                            <img src="img/icon/icon _facebook_.svg" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="nav_circle">
-                    <svg viewBox="-50 -50 100 100" width="150" height="150">
-                        <path d="M 0,20 a 20,20 0 1,1 0,1 z" id="circle" />
-                        <text class="circle-text">
-                            <textPath href="#circle">
-                                IRU’s PLANETA
-                            </textPath>
-                        </text>
-                    </svg>
                 </div>
             </div>
+            <div class="btn_title pc">
+                <span>BOXING CLUB</span>
+            </div>
+            <dev class="navbar sp">
+                <div class="top_logo">
+                    <a href="index.html">
+                        <img src="assets/img/logo.png" alt="">
+                    </a>
+                </div>
+                <!-- 漢堡選單按鈕 -->
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>       
+                <ul class="nav_menu">
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="project.html">風格</a></li>
+                    <li><a href="project.html">色系</a></li>
+                    <li><a href="contact.html">聯絡我們</a></li>
+                </ul>
+            </dev>
         </nav>
     </header>
-    <main id="main">
-        <!-- 背景文字 -->
-        <div class="bg_words title_style">
-            IRU’s PLANETA
-        </div>
-        <!-- 首頁 -->
-        <div class="index_top indexBox">
-            <div class="top_pic">
-                <div class="index_top_title"
-                data-aos="fade-down"  
-                data-aos-duration="3000">
-                    <div class="title_style">
-                        <img src="img/dot.svg" alt="" class="dots">
-                        <h1>IRU’s PLANETA</h1>
-                        <img src="img/dot.svg" alt="" class="dots">
+    <div class="wrap">
+        <main>
+            <div class="center_carousel">
+                <div class="image"> 
+                    <div class="center_words">
+                        <h1>卓越品質 歷久不衰</h1>
+                        <h2>讓經營成為享受</h2>
+                        <p>酷碼 期待與您的合作</p>
                     </div>
-                    <h2>FRONT-END DEVELOPER</h2>
+                    <img data-lazy="assets/img/01.png">
+                </div>
+                <div class="image"> 
+                    <div class="center_words">
+                        <h1>卓越品質 歷久不衰</h1>
+                        <h2>讓經營成為享受</h2>
+                        <p>酷碼 期待與您的合作</p>
+                    </div>
+                    <img data-lazy="assets/img/02.png">
                 </div>
             </div>
-        </div>
-        <!-- 關於我 -->
-        <div class="index_about indexBox" id="index_about">
-            <!-- 左邊文字區 -->
-            <div 
-            data-aos="fade-up"  
-            data-aos-duration="3000" id="openAboutme" class="about_textbox">
-                <hr>
-                <h1 class="text_title">ABOUT ME</h1>
-                <hr>
-                <div class="text_jobname">
-                    <h2>FRONT-END DEVELOPER</h2>
-                    <h3>DESIGNER</h3>
-                </div>
-                <hr>
-                <div class="text_intro">
-                    我是IRU，魏嘉妘，畢業於中國醫藥大學的醫務管理系。在2021年，我踏上了工程師的學習之旅。
-                </div>
-                <hr>
-            </div>
-            <!-- 右邊照片輪播 -->
-            <div class="about_library">
-            </div>
-            <div class="about_model model">
-                <div class="about_container">
-                    <div class="exit" id="about_exit">
-                        <img src="img/icon/icon_exit.svg" alt="">
-                    </div>
-                    <div class="about_box">
-                        <hr>
-                        <h1>ABOUT IRU’s PlANETA</h1>
-                        <div class="grid-container">
-                            <!-- 第一行 -->
-                            <div class="col-1">
-                                <span class="pc">⟡⟡⟡⟡⟡</span>
-                                <span>TAIWANESE</span>
-                            </div>
-                            <div class="col-2">
-                                <span>IRU 魏嘉妘</span>
-                            </div>
-                            <div class="col-3">
-                                <span>6月9日  雙子座</span><span class="pc">⟡⟡⟡⟡⟡</span>
-                            </div>     
-                            <!-- 第二行 -->
-                            <div class="col-4">
-                                <img src="img/index/1.jpg" alt="">
-                            </div>
-                            <div class="col-5">
-                                <p>
-                                    學歷：<br> 
-                                    2021－Tibame Wep/app前端工程師養成班 畢業<br>
-                                    2017－中國醫藥大學 醫務管理學系 畢業
-                                </p>
-                                <p>
-                                    工作經歷：<br>2021/08～2024/02 <br>跳跳網頁設計公司 前端工程師組長<br>2018～2020<br>中國醫藥大學附設醫院 病歷管理室 疾病管理師<br>2015~2017<br>私人數學家教</p>
-                                    
-                                <p>語言能力：<br>中文母語、英文TOEFL82級分（非累次）、西文DELE中級證書</p> 
-                            </div>
-                            <!-- 第三行 -->
-                            <div class="col-6">
-                                <h3>前端技術</h3>
-                                <p>HTML、CSS、SASS、JavaScript、JQuery、Vue.js、Three.js、a-frame
-                                </p>
-                            </div>
-                            <div class="col-7">
-                                <h3>後端技術</h3>
-                                <p>PHP、MySQL</p>
-                            </div>
-                            <div class="col-8">
-                                <h3>設計</h3>
-                                <p>Photoshop、XD、figma、Lightroom、CLIP STUDIO PAINT</p>
-                            </div>
-                    
-                            <!-- 第四行 -->
-                            <div class="col-9">
-                                <h4>LET’S MAKE SOME WAVES.</h4></div>
-                    
-                            <!-- 第五行 -->
-                            <div class="col-10 myword">
-                                我是IRU，魏嘉妘。<br>畢業於中國醫藥大學醫務管理系。<br>自2021年起，全心投入前端工程師的學習與實踐。
-                                <br><br>
-                                從小我就對創造和創新充滿熱情。<br>在個人專案中，挑戰使用新穎的元素和設計手法、參考各國的精湛作品，最終在應屆設計競賽中脫穎而出，獲得最佳設計獎。<br><br>
-                                雖然設計背景並非專科，但在求學過程中皆在大型活動中擔任幹部，鍛煉了個人卓越的控管及計劃能力。
-                            </div>
-                            <div class="col-11 myword">
-                                在大學期間，我加入了電影社，為宣傳網站設計貢獻了我的UI/UX專業知識，這讓我對前端領域產生了濃厚的興趣。<br><br>在緯育前端班的學習中，掌握了前端技能，並涉獵了PHP和MySQL等後端技術，也在應屆畢業項目中，負責統籌資料庫等重要項目。<br><br>這段學習過程讓我對技術有了更深入的理解和熱愛。
-                            </div>
-                            <div class="col-12 myword">
-                                成為前端工程師後，我很幸運地加入了一個極具創新精神的團隊。<br>
-                                我們勇於探索未曾嘗試的技術和視覺藝術，涵蓋了從傳統產業到NFT領域的多元案例。
-                                亦參與了3D與環景技術的應用（如three.js、A-frame和krpano），這些經歷大大開拓了自身視野與設計審美。<br><br>
-                                入職的第三年，很榮幸成為前端工程師的組長。<br><br>未來，我懷著熱切的期望，希望能創作出更多獨具風格的作品，持續在前端工程領域中突破自我，與團隊共同成長。 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- 作品集 -->
-        <div class="index_works indexBox" id="index_works">
-            <h2 class="lab">WORK PORTFOLIO</h2>
-            <button class="see_all_works">
-                SEE ALL WORKS
-            </button>
-            <div class="arrows lab"
-            data-aos="fade-up"  
-            data-aos-duration="3000">
-                <button class="prev">
-                    <span>PREV </span>
-                    ✦</button>
-                <button class="next">✦<span> NEXT</span></button>
-            </div>
-            <!-- carousel -->
-            <div 
-            data-aos="fade-up"  
-            data-aos-duration="3000"
-            data-aos-delay="300"
-            class="carousel" id="carousel">
-                <div class="list">
-                    <div class="item">
-                        <div class="item_img"><img src="img/works/canvas2.png" alt=""></div>
-                        <div class="item_text">
-                            <div class="item_title">
-                                <p>2021 - 2024</p>
-                                <h1>CANVAS                                </h1>
-                            </div>
-                            <div class="item_ctx">
-                                <p>主要使用CANVAS、javascript、CSS等所製作的小品作品集。</p>
-                                <span>WEBSITE ENGENERRING</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_img"><img src="img/works/progroup1.png" alt=""></div>
-                        <div class="item_text">
-                            <div class="item_title">
-                                <p>2021〔01〕</p>
-                                <h1>PRO GROUP</h1>
-                            </div>
-                            <div class="item_ctx">
-                                <p>博群國際商務法律事務所是由邱奕賢博士創立，致力於提供全方位國內外商務法律服務，是台灣中部少數專辦個人及企業財經法律的法律事務所。</p>
-                                <span>WEBSITE ENGENERRING</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_img"><img src="img/works/homya1.png" alt=""></div>
-                        <div class="item_text">
-                            <div class="item_title">
-                                <p>2024〔02〕</p>
-                                <h1>HOMYA</h1>
-                            </div>
-                            <div class="item_ctx">
-                                <p>算命只能知命，命理不是迷信，透過八字命盤快速認清自己的人格特質，充份明白自己的運勢週期興衰並且善用，活出最好的樣貌。</p>
-                                <span>WEBSITE ENGENERRING</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_img"><img src="img/works/jins1.png" alt=""></div>
-                        <div class="item_text">
-                            <div class="item_title">
-                                <p>2024〔03〕</p>
-                                <h1>JINS</h1>
-                            </div>
-                            <div class="item_ctx">
-                                <p>日本銷售量第一眼鏡品牌JINS，在東京總部擁有自己的設計師團隊，和功能眼鏡實驗室，從眼鏡設計、生產、製造到販售，採取一條龍式服務，<br>減少中間商成本，製造高品質眼鏡同時也能提供消費者更合理的價格。</p>
-                                <span>WEBSITE ENGENERRING</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_img"><img src="img/works/panyu1.png" alt=""></div>
-                        <div class="item_text">
-                            <div class="item_title">
-                                <p>2021〔04〕</p>
-                                <h1>PANYU</h1>
-                            </div>
-                            <div class="item_ctx">
-                                <p>磐鈺是一群活力青春洋溢又會做生意的夥伴，我們相信互助共好，也稟持＂有愛、當責、彼此信任＂的宗旨與您相處。</p>
-                                <span>WEBSITE ENGENERRING</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_img"><img src="img/works/dajia1.png" alt=""></div>
-                        <div class="item_text">
-                            <div class="item_title">
-                                <p>2022〔05〕</p>
-                                <h1>TACHIA MATSU</h1>
-                            </div>
-                            <div class="item_ctx">
-                                <p>大甲區鎮瀾宮為全臺最知名的媽祖廟之一，已有二百多年歷史，全年香火鼎盛、信徒絡繹不絕<br>加上每年農曆三月舉辦的遶境出巡，已是世界級的宗教盛事，吸引國內外遊客前來參與，是大甲最具代表性的景點。</p>
-                                <span>WEBSITE ENGENERRING</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_img"><img src="img/works/gogoro1.jpg" alt=""></div>
-                        <div class="item_text">
-                            <div class="item_title">
-                                <p>2021〔06〕</p>
-                                <h1>GOGO DRAGON</h1>
-                            </div>
-                            <div class="item_ctx">
-                                <p>基於對恐龍的熱愛與對遊戲的興趣，想藉此機會嘗試用遊戲推廣恐龍知識。於是決定製作教育導向的互動網站。<br>期待兒童從遊戲中學習獲得關於恐龍生態的知識，並享受到樂趣。
-                                    </p>
-                                <span>WEBSITE ENGENERRING</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="arrows pc"
-                data-aos="fade-up"  
-                data-aos-duration="3000">
-                    <button class="prev">
-                        <span>PREV </span>
-                        ✦</button>
-                    <button class="next">✦<span> NEXT</span></button>
-                </div>
-            </div>
-            <div class="allWords_page">
-                <div class="exit" id="project_exit">
-                    <img src="img/icon/icon_exit.svg" alt="">
-                </div>
-                <ul id="tag_li">
-                    <li>
-                            <span>CANVAS</span>
-                            <span>2021 - 2024</span>
-                    </li>
-                    <li>
-                            <span>PROGROUP</span>
-                            <span>2021〔01〕</span>
-                    </li>
-                    <li>
-                            <span>HOMYA</span>
-                            <span>2024〔02〕</span>
-                    </li>
-                    <li>
-                            <span>JINS</span>
-                            <span>2024〔03〕</span>
-                    </li>
-                    <li>
-                            <span>PANYU</span>
-                            <span>2021〔04〕</span>
-                    </li>
-                    <li>
-                            <span>TACHIA MATSU</span>
-                            <span>2022〔05〕</span>
-                    </li>
-                    <li>
-                        <span>GOGO DRAGON</span>
-                        <span>2021〔06〕</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="index_work_model model">
-                <div class="work_container">
-                    <div class="exit" id="works_exit">
-                        <img src="img/icon/icon_exit.svg" alt="">
-                    </div>
-                    <div class="work_box">
-                        <div class="work_topper_pic">
-                            <img src="img/works/canvas1.png" alt="">
-                        </div>
-                        <div class="work_context">
-                            <div class="work_text">
-                                <div class="work_text_title">
-                                    <h1>CANVAS</h1>
-                                </div>
-                            <div class="work_article">
-                                <p>
-                                    使用CANVAS、javascript、CSS等所製作的小品作品集。
-                                </p>
-                                <p>
-                                    <a href="https://gotoo.co/demo/ruru/practice/canvas/shootDown/
-                                    " target="_blank">小廢狗遊戲</a>
-                                    <a href="https://gotoo.co/demo/ruru/practice/canvas/whackAmole/" target="_blank">打擊王力宏</a>
-                                    <a href="https://gotoo.co/demo/ruru/practice/canvas/writePractice/" target="_blank">線上畫圖板</a>
-                                    <a href="https://gotoo.co/demo/ruru/practice/rabbitCard/" target="_blank">兔年祝賀卡</a>
-                                    <a href="https://gotoo.co/demo/ruru/practice/tigerCard/" target="_blank">虎年動畫卡</a>
-                                </p>
-                            </div>
-                            </div>
-                            <div class="work_library">
-                                <div class="library_box">
-                                    <img src="img/works/canvas2.png" alt="">
-                                </div>
-                                <div class="library_box">
-                                    <img src="img/works/canvas3.png">
-                                </div>
-                                <span class="work_detail">
-                                    個人練習設計<br>
-                                    2021 - 2024
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="work_container">
-                    <div class="exit" id="works_exit">
-                        <img src="img/icon/icon_exit.svg" alt="">
-                    </div>
-                    <div class="work_box">
-                        <div class="work_topper_pic">
-                            <video width="100%" height="100%" controls>
-                                <source src="img/works/progroup-video.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="work_context">
-                            <div class="work_text">
-                                <div class="work_text_title">
-                                    <h1>RPOGROUP</h1>
-                                    <a href="https://progroup.law/" target="_blank"><button>WEBSITE</button></a>
-                                </div>
-                            <div class="work_article">
-                                <h3>負責範圍：總前端開發人員。
-                                </h3>
-                                <p>
-                                    博群國際商務法律事務所是由邱奕賢博士創立，致力於提供全方位國內外商務法律服務，是台灣中部少數專辦個人及企業財經法律的法律事務所，<br>邱奕賢博士有鑑於國內傳統律師事務所業務多著重在法院訴訟，因此本所自創立以來即以積極協助客戶做好事前的法律風險管理為宗旨。<br>我們目前的所內律師領有台灣、紐約和中國大陸等地的律師執照。
-                                </p>
-                                <p>
-                                    一直以來，本所積極提供客戶清晰、有效的法律解決方案，並協助客戶管理法律風險。<br>博群國際商務法律事務所對於訴訟及非訟事業皆有豐富經驗，專精領域包括智慧財產權、商務契約、企業併購、勞資爭議、公司法及爭端解決。
-                                </p>
-                            </div>
-                            </div>
-                            <div class="work_library">
-                                <div class="library_box">
-                                    <img src="img/works/progroup2.png" alt="">
-                                </div>
-                                <div class="library_box">
-                                    <img src="img/works/progroup3.png">
-                                </div>
-                                <span class="work_detail">
-                                    跳跳有限股份公司設計<br>
-                                    2021[01]
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="work_container">
-                    <div class="exit" id="works_exit">
-                        <img src="img/icon/icon_exit.svg" alt="">
-                    </div>
-                    <div class="work_box">
-                        <div class="work_topper_pic">
-                            <video width="100%" height="100%" controls>
-                                <source src="img/works/homya-video.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="work_context">
-                            <div class="work_text">
-                                <div class="work_text_title">
-                                    <h1>HOMYA</h1>
-                                    <a href="https://gotoo.co/demo/ruru/web/homya/" target="_blank"><button>WEBSITE</button></a>
-                                </div>
-                            <div class="work_article">
-                                <h3>負責範圍：總前端開發人員。</h3>
-                                <p>
-                                    人生中<br>總會遇到許多大大小小的問題，<br>不管感情、工作或是生活上，
-                                </p>
-                                <p>一定會碰到許多問題沒辦法立即解決，或是你不知道該如何解決的時候，<br>此時會感到焦急、不知所措，反而讓自己陷入惡性的循環當中。
-                                </p>
-                                <p>算命只能知命，命理不是迷信，透過八字命盤快速認清自己的人格特質，充份明白自己的運勢週期興衰並且善用，活出最好的樣貌。<br>命有運，改變不了出生，但可以改變自己的命運，運是動詞！<br>困擾都源自個人思維和價值觀的延伸，想要解決這些困擾，必須從根本著手，也就是要從個人心態思維和價值觀調整，不調整，外在的困擾必然會不斷延伸。
-                                </p>
-                            </div>
-                            </div>
-                            <div class="work_library">
-                                <div class="library_box">
-                                    <img src="img/works/homya2.png" alt="">
-                                </div>
-                                <div class="library_box">
-                                    <img src="img/works/homya3.png">
-                                </div>
-                                <div class="library_box">
-                                    <img src="img/works/homya4.png">
-                                </div>
-                                <span class="work_detail">
-                                    跳跳有限股份公司設計<br>
-                                    2024[02]
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="work_container">
-                    <div class="exit" id="works_exit">
-                        <img src="img/icon/icon_exit.svg" alt="">
-                    </div>
-                    <div class="work_box">
-                        <div class="work_topper_pic">
-                            <img src="img/works/jins1.png" alt="">
-                        </div>
-                        <div class="work_context">
-                            <div class="work_text">
-                                <div class="work_text_title">
-                                    <h1>JINS</h1>
-                                    <a href="https://www.jins.com/tw/" target="_blank"><button>WEBSITE</button></a>
-                                </div>
-                            <div class="work_article">
-                                <h3>負責範圍：總前端維護專員，並負責後續更新、修改配合等專案工作。
-                                </h3>
-                                <p>
-                                    日本銷售量第一眼鏡品牌JINS，在東京總部擁有自己的設計師團隊，和功能眼鏡實驗室，從眼鏡設計、生產、製造到販售，採取一條龍式服務。<br>減少中間商成本，製造高品質眼鏡同時也能提供消費者更合理的價格。<br>店內鏡框上的標價就是配到好的價格，鏡框加鏡片整組配到好只要台幣1,480元到5,980元，無論近視遠視或散光幾度，都不用另外加價。<br>輕鬆配鏡，沒有壓力，最快30分鐘內取件，店內平均提供上千種款式，能夠滿足不同場合需求，用時尚眼鏡點綴你的日常，讓生活更豐富、穿搭更輕鬆。
-
-                                </p>
-                            </div>
-                            </div>
-                            <div class="work_library">
-                                <div class="library_box">
-                                    <img src="img/works/jins2.png" alt="">
-                                </div>
-                                <div class="library_box">
-                                    <img src="img/works/jins3.png">
-                                </div>
-                                <span class="work_detail">
-                                    跳跳有限股份公司設計<br>
-                                    2024[03]
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="work_container">
-                    <div class="exit" id="works_exit">
-                        <img src="img/icon/icon_exit.svg" alt="">
-                    </div>
-                    <div class="work_box">
-                        <div class="work_topper_pic">
-                            <img src="img/works/panyu1.png" alt="">
-                        </div>
-                        <div class="work_context">
-                            <div class="work_text">
-                                <div class="work_text_title">
-                                    <h1>PANYU</h1>
-                                    <a href="https://ailer8469.github.io/panyu/dev/" target="_blank"><button>WEBSITE</button></a>
-                                </div>
-                            <div class="work_article">
-                                <h3>負責範圍：總前端開發人員。
-                                </h3>
-                                <p>
-                                    磐鈺是一群活力青春洋溢又會做生意的夥伴，我們相信互助共好，也稟持＂有愛、當責、彼此信任＂的宗旨與您相處。
-                                </p>
-                                <p>
-                                    在這裡輕鬆而不失原則，歡樂且不隨興，正面積極且重 視傳承，彼此介紹生意不遺餘力。在同性質平台競爭下，盤鈺依然擁有強大人脈，為夥伴創造更高的訂單金額。
-                                </p>
-                            </div>
-                            </div>
-                            <div class="work_library">
-                                <div class="library_box">
-                                    <img src="img/works/panyu3.png" alt="">
-                                </div>
-                                <div class="library_box">
-                                    <img src="img/works/panyu2.png">
-                                </div>
-                                <span class="work_detail">
-                                    跳跳有限股份公司設計<br>
-                                    2021[04]
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="work_container">
-                    <div class="exit" id="works_exit">
-                        <img src="img/icon/icon_exit.svg" alt="">
-                    </div>
-                    <div class="work_box">
-                        <div class="work_topper_pic">
-                            <img src="img/works/dajia1.png" alt="">
-                        </div>
-                        <div class="work_context">
-                            <div class="work_text">
-                                <div class="work_text_title">
-                                    <h1>TACHIA MATSU</h1>
-                                    <a href="https://gotoo.co/demo/Dajiama/bless-chooseOffering.html" target="_blank"><button>WEBSITE</button></a>
-                                </div>
-                            <div class="work_article">
-                                <h3>負責範圍：虛擬擲杯、進貢、3D詩籤程式處理。
-                                </h3>
-                                <p>
-                                    大甲區鎮瀾宮為全臺最知名的媽祖廟之一，已有二百多年歷史，全年香火鼎盛、信徒絡繹不絕<br>加上每年農曆三月舉辦的遶境出巡，已是世界級的宗教盛事，吸引國內外遊客前來參與，是大甲最具代表性的景點。
-                                </p>
-                                <p>
-                                    鎮瀾宮的紫羅蘭翡翠媽祖和地下一樓媽祖文化館中的黃金媽祖更是鎮殿之寶，現在媽祖更被列為臺中三寶之一，成為臺中旅遊的必遊景點。
-                                </p>
-                                <p>
-                                    <a href="https://gotoo.co/demo/Dajiama/bless-chooseOffering.html" target="_blank">
-                                        虛擬進貢
-                                    </a>
-                                    <a href="https://gotoo.co/demo/Dajiama/bless-getXiao.html" target="_blank">擲杯抽籤</a>
-                                </p>
-                            </div>
-                            </div>
-                            <div class="work_library">
-                                <div class="library_box">
-                                    <img src="img/works/dajia2.png" alt="">
-                                </div>
-                                <div class="library_box">
-                                    <img src="img/works/dajia3.png">
-                                </div>
-                                <span class="work_detail">
-                                    跳跳有限股份公司設計<br>
-                                    2022[05]
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="work_container">
-                    <div class="exit" id="works_exit">
-                        <img src="img/icon/icon_exit.svg" alt="">
-                    </div>
-                    <div class="work_box">
-                        <div class="work_topper_pic">
-                            <img src="img/works/gogoro1.jpg" alt="">
-                        </div>
-                        <div class="work_context">
-                            <div class="work_text">
-                                <div class="work_text_title">
-                                    <h1>TACHIA MATSU</h1>
-                                    <a href="https://www.youtube.com/watch?v=QyyN9-MbpQU" target="_blank"><button>YOUTUBE</button></a>
-                                </div>
-                            <div class="work_article">
-                                <h3>負責範圍：前期版面設計、登出登入系統、會員系統、後端資料庫管理。
-                                </h3>
-                                <p>
-                                    基於對恐龍的熱愛與對遊戲的興趣，希望藉此機會透過遊戲來推廣恐龍知識。<br>因此，團隊決定製作一個以教育為導向的互動網站，讓更多人能夠接觸到這個令人著迷的主題。
-                                </p>
-                                <p>
-                                    期待兒童能夠在遊戲中學習到關於恐龍生態的知識，同時享受遊戲所帶來的樂趣。<br>希望這個網站能激發他們對恐龍的興趣，讓學習變得更加生動有趣。
-                                </p>
-                            </div>
-                            </div>
-                            <div class="work_library">
-                                <div class="library_box">
-                                    <img src="img/works/gogoro2.jpg" alt="">
-                                </div>
-                                <div class="library_box">
-                                    <img src="img/works/gogoro3.jpg">
-                                </div>
-                                <span class="work_detail">
-                                    CFD101－第一組團隊設計<br>
-                                    2021[06]
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <div class="footer_logo">
-            IRU’S PLANETA
-        </div>
-        <div class="footer_designer">
-            ui design HGH.Studio
-        </div>
-        <div class="footer_contact">
-            <a href="">
-                <img src="img/icon/icon _sms_footer.svg" alt="">
-            </a>
-            <a href="">
-                <img src="img/icon/icon _instagram_footer.svg" alt="">
-            </a>
-            <a href="">
-                <img src="img/icon/icon _facebook_footer.svg" alt="">
-            </a>
-        </div>
-
-    </footer>
+        </main>
+        <footer>
+            <span>酷碼資訊</span>
+        </footer>    
+    </div>
     <!-- javsScrips -->
-    <script src="js/layout/load.js"></script>
-    <script src="js/layout/bar.js"></script>
-    <script src="js/layout/cursor.js"></script>
-    <script src="js/layout/model.js"></script>
-    <script src="js/carousel.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
