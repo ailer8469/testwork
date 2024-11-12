@@ -1,0 +1,55 @@
+// 字體
+$bgTitle:10vw;
+$smTitle:1vw;
+$text:1.3vw;
+$h3:18px;
+
+$bgTitle_lab:9vw;
+$bgTitle_sp:5vw;
+// cursor
+$click:url("../pic/icon/click_cursor.svg"), default;
+$regular:url("../pic/icon/regular_cursor.svg"), default;
+
+// 顏色
+$body_bg:#ece9dc;
+$loading_bg:#f3e7dc;
+$item_bg:#FFF8F2;
+$loading_word:#5C5C5C;
+$word:#4F709C;
+$word_hover:#0C5ECC;
+$nav_time:#2c4772;
+
+$hover:0 0 10px #b0bfff;
+$boxShadow: 0 7px 30px -10px rgba(150,170,180,0.5);
+
+$item1-transform:translate(-100%,-5%) scale(1.5);
+$item1-blur:blur(30px);
+$item1-zindex:11;
+$item1-opacity:0;
+
+$item2-transform:translate(0,0);
+$item2-blur:blur(0);
+$item2-zindex:10;
+$item2-opacity:1;
+
+$item3-transform: translate(100%,10%) scale(0.9);
+$item3-blur:blur(10px);
+$item3-zindex:9;
+$item3-opacity:1;
+
+$item4-transform: translate(200%,10%) scale(0.8);
+$item4-blur:blur(30px);
+$item4-zindex:8;
+$item4-opacity:1;
+
+$index: calc(1vw + 1vh);
+$transition: cubic-bezier(.1, .7, 0, 1);
+$cursor-height:80px;
+
+// 斷點 breakpoint
+$desktop: 1200px;
+$medio: 800px;
+$mobile : 550px;
+$small: 450px;
+
+

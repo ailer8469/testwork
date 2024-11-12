@@ -1,0 +1,16 @@
+// _fonts.scss
+
+$font-family-primary: 'LeMurmure', sans-serif;
+$font-family-text:'Helvetica', sans-serif;
+
+@font-face {
+    font-family: 'LeMurmure';
+    src: url('../../fonts/webfonts/LeMurmure-Regular.woff2') format('woff2'),
+        url('../../fonts/webfonts/LeMurmure-Regular.woff') format('woff'),
+        url('../../fonts/le-murmure.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: $font-family-primary;
+}

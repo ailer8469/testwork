@@ -1,0 +1,27 @@
+
+
+@mixin flex($side,$justify,$align){
+    display: flex; 
+    flex-direction:$side;     
+    justify-content: $justify; 
+    align-items: $align;
+}
+
+@mixin btn{
+    padding: 10px 25px;
+    font-family: $font-family-primary;
+    font-size: 36px;
+    color: $word;
+    border: 1px solid $word;
+    border-radius: 30px;
+    transition: all .5s ease; 
+    &:hover,&:focus{
+        color:$word_hover;
+        border: 1px solid $word_hover;
+        padding: 10px 20px;
+        border-radius: 40px;
+        letter-spacing: 2px;
+        text-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        text-decoration:underline $word_hover 1px;
+    }
+}
