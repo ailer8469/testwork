@@ -1,30 +1,30 @@
-var wdth = $(window).width();
-
 $(function(){
+    // loading
     $('body').waitForImages({
         waitForAll: true,
         finished: function() {
             $('#loading').fadeOut(1000); 
         },
     });
+    // bar
     $('.hamburger').on('click',function() {
         $(this).toggleClass('active');
         $('.nav_menu').toggleClass('active');
     });
 
-    // 點擊選單項目時關閉選單（手機版）
+    // 點擊選單項目時關閉選單（sp）
     $('.nav_menu li a').on('click',function() {
         $('.hamburger').removeClass('active');
         $('.nav_menu').removeClass('active');
     });
-    // 點擊空白處關閉選單
+    // 點擊空白處關閉
     $(document).on('click',function(event) {
         if (!$(event.target).closest('.navbar').length) {
             $('.hamburger').removeClass('active');
             $('.nav_menu').removeClass('active');
         }
     });
-    // 添加滑過效果
+    // 添加效果
     $('.nav_menu li a').on('hover',
         function() {
             $(this).css('color', '#ddd');
@@ -33,7 +33,7 @@ $(function(){
             $(this).css('color', 'white');
         }
     );
-    // 滾動時固定導航欄（選用）
+    // 滾動時固定導航欄
     $(window).on('scroll',function() {
         if ($(this).scrollTop() > 50) {
             $('.navbar').addClass('fixed');
@@ -41,11 +41,14 @@ $(function(){
             $('.navbar').removeClass('fixed');
         }
     });
+
+    // Carousel
     $('.center_carousel').slick({
         dots: true,
         infinite: true,
         speed: 500,
         fade: true,
+        autoplay:true,
         slide: 'div',
         cssEase: 'linear',
     });
@@ -105,10 +108,10 @@ $(function(){
         currentPage = parseInt($(this).text());
         showPage(currentPage);
     });
+    // 顯示第一頁
+    showPage(1); 
 
-    showPage(1); // 顯示第一頁
-
-    // 往上滑
+    // 滑到最上方
     $('.scrollUp').on('click',function() {
         $('html, body').animate({ scrollTop: 0 }, 600);
     });
@@ -123,7 +126,6 @@ $(function(){
     // 過濾器
     const $filterItems = $('.title_class li');
     const $projectItems = $('.project_items');
-
     $filterItems.on('click',function() {
         const selectedClass = $(this).attr('class');
         if (selectedClass === 'all_class') {

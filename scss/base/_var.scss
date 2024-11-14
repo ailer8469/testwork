@@ -5,17 +5,13 @@ $smTitle:1.2vw;
 $text:1vw;
 
 // cursor
-$click:url("../pic/icon/click_cursor.svg"), default;
-$regular:url("../pic/icon/regular_cursor.svg"), default;
+$regular:url("../img/cursor.png"), default;
 
 // 顏色
 $body_bg:#f2f2f2;
 $loading_word:#5C5C5C;
 $word:#28292b;
 $word_hover:#540f6d;
-
-$hover:0 0 10px #b0bfff;
-$boxShadow: 0 7px 30px -10px rgba(150,170,180,0.5);
 
 // 斷點 breakpoint
 $desktop: 1200px;

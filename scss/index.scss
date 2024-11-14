@@ -20,6 +20,7 @@ body {
     overflow-x: hidden;
     background: $body_bg;
     color: $word;
+    cursor: $regular;
     &::-webkit-scrollbar {
         width: 10px;
         background-color: $body_bg;

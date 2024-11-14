@@ -1,3 +1,4 @@
+// 物件庫
 const projects = [
     {
         id: "021",
@@ -81,9 +82,10 @@ const projects = [
 
 
 $(function(){
+    // 導入素材
     const projectContainer = $(".project_container"); 
         projects.forEach(project => {
-            // 創建每個項目的 HTML 結構
+            // 創建每個項目
             const projectItem = $(`
                 <div class="project_items ${project.category}">
                     <div class="project_item">
@@ -103,12 +105,11 @@ $(function(){
                     </div>
                 </div>
             `);
-
             // 將生成的項目附加到容器
             projectContainer.append(projectItem);
         });
 
-        // 點擊窗
+        // 點擊視窗打開modal
         $(".project_item").on("click", function() {
             // 取得該 .project_item 的圖片來源
             const imgSrc = $(this).find("img").attr("src");
@@ -119,12 +120,9 @@ $(function(){
             // 顯示模態框
             $("#modal").fadeIn(500);
         });
-        
-        // 當點擊 .close 或模態框時關閉模態框
         $(".close, #modal").on("click", function() {
             $("#modal").fadeOut(500);
         });
-        
         // 避免點擊模態框內的圖片關閉模態框
         $("#modalImage").on("click", function(event) {
             event.stopPropagation();
